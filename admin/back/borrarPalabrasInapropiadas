@@ -1,0 +1,21 @@
+<?php
+
+include_once "../../db/consultas.php";
+include_once ("../clases/Opciones.php");
+                            
+if((isset($_POST['insulto'])))
+     {
+          $insulto = $_POST['insulto'];
+          $opcionMenu = PalabrasInapropiadas::traeUnaOpcion($_POST['insulto']);        
+          $opcionMenu -> borrarPalabrasInapropiadas();
+          header('location: ../front/configuracion.php');
+        }
+else
+    {
+        print_r("Usuario no valido");
+    }
+    return $opcionMenu;
+    print_r($opcionMenu);
+  
+         
+ ?>
